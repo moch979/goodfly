@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoodFly - وكالة رحلات العمرة والحج</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2a5d8a;
+            --secondary-color: #4a9d5c;
+            --accent-color: #e8b54a;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark-color);
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 15px;
+        }
+        
+        .logo i {
+            font-size: 32px;
+            color: white;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .logo-text span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 10px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imgs/hajj-image.jpg') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: #d9a439;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Programs Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--primary-color);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .programs-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .program-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .program-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), #ffd700);
+        }
+        
+        .program-header h3 {
+            font-size: 1.4rem;
+            margin: 0;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .program-content {
+            padding: 20px;
+        }
+        
+        .program-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .program-table th {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: var(--primary-color);
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 0.85rem;
+        }
+        
+        .program-table td {
+            padding: 12px 8px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+        }
+        
+        .program-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .program-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .hotel-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .room-type {
+            background: linear-gradient(135deg, var(--secondary-color), #4a9d5c);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        
+        .book-btn {
+            background: linear-gradient(135deg, var(--secondary-color), #4a9d5c);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 8px rgba(74, 157, 92, 0.3);
+        }
+        
+        .book-btn:hover {
+            background: linear-gradient(135deg, #3a7c48, var(--secondary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 157, 92, 0.4);
+        }
+        
+        .program-features {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .features-list li {
+            background: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .features-list li i {
+            margin-left: 5px;
+            color: var(--secondary-color);
+        }
+        
+        /* Booking Section */
+        .booking {
+            background-color: var(--light-color);
+        }
+        
+        .booking-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .booking-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .form-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #1f4a70;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-color);
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-left: 10px;
+            margin-top: 5px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-logo .logo-text {
+            color: white;
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background-color: white;
+                flex-direction: column;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero {
+                height: 60vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+        
+        .modal-icon {
+            font-size: 4rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .modal h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .modal p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="imgs/logo.png" alt="Good Fly Logo" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; background: none; box-shadow: none;" />
+                </div>
+                <div class="logo-text">Good<span>Fly</span></div>
+            </div>
+            
+            <nav>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#programs">برامج العمرة</a></li>
+                    <li><a href="#booking">الحجوزات</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>رحلات العمرة والحج بتميز وروحانية</h1>
+            <p>نساعدك على أداء مناسك العمرة والحج بكل سهولة ويسر مع أفضل الخدمات والبرامج المميزة</p>
+            <a href="#programs" class="btn">احجز رحلتك الآن</a>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="section" id="programs">
+        <div class="container">
+            <h2 class="section-title">برامج العمرة</h2>
+            
+            <div class="programs-container">
+                <!-- Program 1 -->
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>برنامج 15 يناير 2025</h3>
+                    </div>
+                    <div class="program-content">
+                        <table class="program-table">
+                            <thead>
+                                <tr>
+                                    <th>فندق مكة</th>
+                                    <th>فندق المدينة</th>
+                                    <th>نوع الغرفة</th>
+                                    <th>السعر (MAD)</th>
+                                    <th>الحجز</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="hotel-name">إعمار جراند</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثنائي</span></td>
+                                    <td class="price">15,000</td>
+                                    <td><button class="book-btn" data-program="15 يناير 2025" data-hotel="إعمار جراند" data-room="ثنائي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">إعمار جراند</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثلاثي</span></td>
+                                    <td class="price">13,500</td>
+                                    <td><button class="book-btn" data-program="15 يناير 2025" data-hotel="إعمار جراند" data-room="ثلاثي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">إعمار جراند</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">رباعي</span></td>
+                                    <td class="price">12,000</td>
+                                    <td><button class="book-btn" data-program="15 يناير 2025" data-hotel="إعمار جراند" data-room="رباعي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">الشهداء</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثنائي</span></td>
+                                    <td class="price">14,000</td>
+                                    <td><button class="book-btn" data-program="15 يناير 2025" data-hotel="الشهداء" data-room="ثنائي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">الشهداء</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثلاثي</span></td>
+                                    <td class="price">13,000</td>
+                                    <td><button class="book-btn" data-program="15 يناير 2025" data-hotel="الشهداء" data-room="ثلاثي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">الشهداء</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">رباعي</span></td>
+                                    <td class="price">11,500</td>
+                                    <td><button class="book-btn" data-program="15 يناير 2025" data-hotel="الشهداء" data-room="رباعي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">سويس أوتيل</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثنائي</span></td>
+                                    <td class="price">13,000</td>
+                                    <td><button class="book-btn" data-program="15 يناير 2025" data-hotel="سويس أوتيل" data-room="ثنائي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">سويس أوتيل</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثلاثي</span></td>
+                                    <td class="price">12,000</td>
+                                    <td><button class="book-btn" data-program="15 يناير 2025" data-hotel="سويس أوتيل" data-room="ثلاثي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">سويس أوتيل</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">رباعي</span></td>
+                                    <td class="price">11,000</td>
+                                    <td><button class="book-btn" data-program="15 يناير 2025" data-hotel="سويس أوتيل" data-room="رباعي">احجز</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="program-features">
+                        <ul class="features-list">
+                            <li><i class="fas fa-plane"></i> تذكرة طيران</li>
+                            <li><i class="fas fa-hotel"></i> إقامة فندقية</li>
+                            <li><i class="fas fa-bus"></i> نقل داخلي</li>
+                            <li><i class="fas fa-utensils"></i> وجبات</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>برنامج 01 أغسطس 2025</h3>
+                    </div>
+                    <div class="program-content">
+                        <table class="program-table">
+                            <thead>
+                                <tr>
+                                    <th>فندق مكة</th>
+                                    <th>فندق المدينة</th>
+                                    <th>نوع الغرفة</th>
+                                    <th>السعر (MAD)</th>
+                                    <th>الحجز</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="hotel-name">إعمار جراند</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثنائي</span></td>
+                                    <td class="price">15,500</td>
+                                    <td><button class="book-btn" data-program="01 أغسطس 2025" data-hotel="إعمار جراند" data-room="ثنائي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">إعمار جراند</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثلاثي</span></td>
+                                    <td class="price">14,000</td>
+                                    <td><button class="book-btn" data-program="01 أغسطس 2025" data-hotel="إعمار جراند" data-room="ثلاثي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">إعمار جراند</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">رباعي</span></td>
+                                    <td class="price">12,500</td>
+                                    <td><button class="book-btn" data-program="01 أغسطس 2025" data-hotel="إعمار جراند" data-room="رباعي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">الشهداء</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثنائي</span></td>
+                                    <td class="price">14,500</td>
+                                    <td><button class="book-btn" data-program="01 أغسطس 2025" data-hotel="الشهداء" data-room="ثنائي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">الشهداء</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثلاثي</span></td>
+                                    <td class="price">13,500</td>
+                                    <td><button class="book-btn" data-program="01 أغسطس 2025" data-hotel="الشهداء" data-room="ثلاثي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">الشهداء</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">رباعي</span></td>
+                                    <td class="price">12,000</td>
+                                    <td><button class="book-btn" data-program="01 أغسطس 2025" data-hotel="الشهداء" data-room="رباعي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">سويس أوتيل</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثنائي</span></td>
+                                    <td class="price">13,500</td>
+                                    <td><button class="book-btn" data-program="01 أغسطس 2025" data-hotel="سويس أوتيل" data-room="ثنائي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">سويس أوتيل</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثلاثي</span></td>
+                                    <td class="price">12,500</td>
+                                    <td><button class="book-btn" data-program="01 أغسطس 2025" data-hotel="سويس أوتيل" data-room="ثلاثي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">سويس أوتيل</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">رباعي</span></td>
+                                    <td class="price">11,500</td>
+                                    <td><button class="book-btn" data-program="01 أغسطس 2025" data-hotel="سويس أوتيل" data-room="رباعي">احجز</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="program-features">
+                        <ul class="features-list">
+                            <li><i class="fas fa-plane"></i> تذكرة طيران</li>
+                            <li><i class="fas fa-hotel"></i> إقامة فندقية</li>
+                            <li><i class="fas fa-bus"></i> نقل داخلي</li>
+                            <li><i class="fas fa-utensils"></i> وجبات</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>برنامج 03 سبتمبر 2025</h3>
+                    </div>
+                    <div class="program-content">
+                        <table class="program-table">
+                            <thead>
+                                <tr>
+                                    <th>فندق مكة</th>
+                                    <th>فندق المدينة</th>
+                                    <th>نوع الغرفة</th>
+                                    <th>السعر (MAD)</th>
+                                    <th>الحجز</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="hotel-name">إعمار جراند</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثنائي</span></td>
+                                    <td class="price">16,000</td>
+                                    <td><button class="book-btn" data-program="03 سبتمبر 2025" data-hotel="إعمار جراند" data-room="ثنائي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">إعمار جراند</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثلاثي</span></td>
+                                    <td class="price">14,500</td>
+                                    <td><button class="book-btn" data-program="03 سبتمبر 2025" data-hotel="إعمار جراند" data-room="ثلاثي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">إعمار جراند</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">رباعي</span></td>
+                                    <td class="price">13,000</td>
+                                    <td><button class="book-btn" data-program="03 سبتمبر 2025" data-hotel="إعمار جراند" data-room="رباعي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">الشهداء</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثنائي</span></td>
+                                    <td class="price">15,000</td>
+                                    <td><button class="book-btn" data-program="03 سبتمبر 2025" data-hotel="الشهداء" data-room="ثنائي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">الشهداء</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثلاثي</span></td>
+                                    <td class="price">14,000</td>
+                                    <td><button class="book-btn" data-program="03 سبتمبر 2025" data-hotel="الشهداء" data-room="ثلاثي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">الشهداء</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">رباعي</span></td>
+                                    <td class="price">12,500</td>
+                                    <td><button class="book-btn" data-program="03 سبتمبر 2025" data-hotel="الشهداء" data-room="رباعي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">سويس أوتيل</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثنائي</span></td>
+                                    <td class="price">14,000</td>
+                                    <td><button class="book-btn" data-program="03 سبتمبر 2025" data-hotel="سويس أوتيل" data-room="ثنائي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">سويس أوتيل</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">ثلاثي</span></td>
+                                    <td class="price">13,000</td>
+                                    <td><button class="book-btn" data-program="03 سبتمبر 2025" data-hotel="سويس أوتيل" data-room="ثلاثي">احجز</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hotel-name">سويس أوتيل</td>
+                                    <td>موڤنبيك</td>
+                                    <td><span class="room-type">رباعي</span></td>
+                                    <td class="price">12,000</td>
+                                    <td><button class="book-btn" data-program="03 سبتمبر 2025" data-hotel="سويس أوتيل" data-room="رباعي">احجز</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="program-features">
+                        <ul class="features-list">
+                            <li><i class="fas fa-plane"></i> تذكرة طيران</li>
+                            <li><i class="fas fa-hotel"></i> إقامة فندقية</li>
+                            <li><i class="fas fa-bus"></i> نقل داخلي</li>
+                            <li><i class="fas fa-utensils"></i> وجبات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="section booking" id="booking">
+        <div class="container">
+            <h2 class="section-title">احجز رحلتك</h2>
+            
+            <div class="booking-container">
+                <!-- Flight Booking Form -->
+                <div class="booking-form">
+                    <h3 class="form-title">حجز تذكرة طيران</h3>
+                    <form id="flight-form">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="travel-date">تاريخ السفر</label>
+                            <input type="date" id="travel-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="from">من</label>
+                            <input type="text" id="from" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="to">إلى</label>
+                            <input type="text" id="to" required>
+                        </div>
+                        <button type="submit" class="submit-btn">احجز التذكرة</button>
+                    </form>
+                </div>
+                
+                <!-- Hotel Booking Form -->
+                <div class="booking-form">
+                    <h3 class="form-title">حجز فندق</h3>
+                    <form id="hotel-form">
+                        <div class="form-group">
+                            <label for="h-name">الاسم الكامل</label>
+                            <input type="text" id="h-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="h-email">البريد الإلكتروني</label>
+                            <input type="email" id="h-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="h-phone">رقم الهاتف</label>
+                            <input type="tel" id="h-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">المدينة</label>
+                            <select id="city" required>
+                                <option value="">اختر المدينة</option>
+                                <option value="مكة المكرمة">مكة المكرمة</option>
+                                <option value="المدينة المنورة">المدينة المنورة</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="check-in">تاريخ الوصول</label>
+                            <input type="date" id="check-in" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="check-out">تاريخ المغادرة</label>
+                            <input type="date" id="check-out" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="room-type">نوع الغرفة</label>
+                            <select id="room-type" required>
+                                <option value="">اختر نوع الغرفة</option>
+                                <option value="ثنائي">ثنائي</option>
+                                <option value="ثلاثي">ثلاثي</option>
+                                <option value="رباعي">رباعي</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-btn">احجز الفندق</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">من نحن</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>وكالة GoodFly لتنظيم رحلات العمرة والحج</h3>
+                    <p>نحن وكالة متخصصة في تنظيم رحلات العمرة والحج منذ عام 2005، نقدم خدمات شاملة ومتميزة للحجاج والمعتمرين من جميع أنحاء العالم. نتميز بخبرة واسعة في تنظيم الرحلات الدينية وتوفير أفضل الخدمات التي تضمن رحلة روحانية مريحة ومباركة.</p>
+                    <p>فريقنا من المتخصصين يعمل على توفير كل ما تحتاجه من خدمات سفر وإقامة ونقل ومرافقة دينية، مع الالتزام بأعلى معايير الجودة والراحة. نحرص على أن تكون رحلتك خالية من المتاعب ومليئة بالبركات والذكريات الجميلة.</p>
+                    <p>بفضل علاقاتنا الواسعة مع الفنادق وشركات الطيران، نضمن لك أفضل الأسعار وأجود الخدمات. نحن نؤمن بأن رحلة العمرة والحج هي رحلة العمر، لذلك نقدم لك كل الدعم والرعاية لتحقيق أقصى استفادة روحية من هذه التجربة المباركة.</p>
+                    <a href="#contact" class="btn">تواصل معنا</a>
+                </div>
+                
+                <div class="about-image">
+                    <img src="imgs/img2.webp" alt="عن Good Fly" style="width: 100px; height: 100px; object-fit: contain; background: none; border-radius: 10px;" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>معلومات الاتصال</h3>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>العنوان</h4>
+                                <p>شارع الحجاج، رقم 25، الدار البيضاء، المغرب</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>الهاتف</h4>
+                                <p>+212 522 123 456</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>البريد الإلكتروني</h4>
+                                <p>info@goodfly.ma</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map">
+                        <div style="width: 100%; height: 200px; background-color: #ddd; border-radius: 8px; display: flex; justify-content: center; align-items: center;">
+                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: var(--primary-color);"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>أرسل لنا رسالة</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="c-name">الاسم الكامل</label>
+                            <input type="text" id="c-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="c-email">البريد الإلكتروني</label>
+                            <input type="email" id="c-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="c-phone">رقم الهاتف</label>
+                            <input type="tel" id="c-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <div class="logo-container">
+                        <div class="logo">
+                            <img src="logo.png" alt="Good Fly Logo" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; background: none; box-shadow: none;" />
+                        </div>
+                        <div class="logo-text">Good<span>Fly</span></div>
+                    </div>
+                    <p style="margin-top: 15px; color: #ccc;">نساعدك على أداء مناسك العمرة والحج بكل سهولة ويسر مع أفضل الخدمات والبرامج المميزة</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#programs">برامج العمرة</a></li>
+                        <li><a href="#booking">الحجوزات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>روابط مفيدة</h4>
+                    <ul>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">الشهادات والجوائز</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2025 GoodFly وكالة رحلات العمرة والحج</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 id="modal-title">تم الحجز بنجاح!</h3>
+            <p id="modal-message">لقد تم تسجيل حجزك بنجاح، سيتصل بك أحد ممثلينا لتأكيد التفاصيل.</p>
+            <button class="btn" id="modal-close">موافق</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+            });
+        });
+        
+        // Modal functionality
+        const modal = document.getElementById('confirmation-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const closeModal = document.querySelector('.close-modal');
+        const modalCloseBtn = document.getElementById('modal-close');
+        
+        function openModal(title, message) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modal.style.display = 'flex';
+        }
+        
+        function closeModalFunc() {
+            modal.style.display = 'none';
+        }
+        
+        closeModal.addEventListener('click', closeModalFunc);
+        modalCloseBtn.addEventListener('click', closeModalFunc);
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModalFunc();
+            }
+        });
+        
+        // Flight Form Submission
+        const flightForm = document.getElementById('flight-form');
+        flightForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            openModal('تم حجز التذكرة!', 'لقد تم تسجيل حجز تذكرتك بنجاح، سيتصل بك أحد ممثلينا لتأكيد التفاصيل.');
+            flightForm.reset();
+        });
+        
+        // Hotel Form Submission
+        const hotelForm = document.getElementById('hotel-form');
+        hotelForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            openModal('تم حجز الفندق!', 'لقد تم تسجيل حجز فندقك بنجاح، سيتصل بك أحد ممثلينا لتأكيد التفاصيل.');
+            hotelForm.reset();
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            openModal('تم إرسال الرسالة!', 'شكراً لتواصلك معنا، سوف نرد على رسالتك في أقرب وقت ممكن.');
+            contactForm.reset();
+        });
+        
+        // Program Booking Buttons
+        const bookBtns = document.querySelectorAll('.book-btn');
+        bookBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const program = btn.getAttribute('data-program');
+                const hotel = btn.getAttribute('data-hotel');
+                const room = btn.getAttribute('data-room');
+                
+                openModal(
+                    'حجز برنامج العمرة', 
+                    `تم حجز برنامج العمرة بتاريخ ${program} في فندق ${hotel} بغرفة ${room}. سيتصل بك أحد ممثلينا لتأكيد الحجز والدفع.`
+                );
+            });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
