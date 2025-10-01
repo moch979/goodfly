@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoodFly - وكالة العمرة والحج</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        
+        body {
+            box-sizing: border-box;
+            font-family: 'Amiri', serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #059669 50%, #d97706 100%);
+        }
+        
+        .kaaba-bg {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23f4f4f5" width="800" height="600"/><rect fill="%23e5e7eb" x="200" y="150" width="400" height="300" rx="20"/><rect fill="%23374151" x="350" y="200" width="100" height="200" rx="10"/><circle fill="%23fbbf24" cx="400" cy="100" r="30"/><text x="400" y="500" text-anchor="middle" fill="%236b7280" font-size="24" font-family="Arial">الكعبة المشرفة</text></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .scroll-container {
+            scrollbar-width: thin;
+            scrollbar-color: #d1d5db #f3f4f6;
+        }
+        
+        .scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .scroll-container::-webkit-scrollbar-track {
+            background: #f3f4f6;
+            border-radius: 4px;
+        }
+        
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 4px;
+        }
+        
+        .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+        
+        .video-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .star-rating {
+            color: #fbbf24;
+        }
+        
+        /* Smooth section transitions */
+        .section-transition {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered animation for elements */
+        .stagger-animation {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .stagger-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header with Logo -->
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
+            <div class="flex items-center justify-center">
+                <!-- Custom Logo -->
+                <img src="https://i.postimg.cc/87nDJWhk/image.png" 
+                     alt="GoodFly Logo" 
+                     class="w-48 h-48 object-contain"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="w-48 h-48 bg-gradient-to-br from-green-600 to-blue-600 rounded-full items-center justify-center" style="display: none;">
+                    <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Makkah Image -->
+    <section class="kaaba-bg min-h-96 flex items-center justify-center">
+        <div class="text-center text-white px-4 fade-in">
+            <div class="mb-8">
+                <div class="w-32 h-32 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <span class="text-6xl">🕋</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Headlines -->
+    <section class="py-16 bg-white section-fade-in">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl font-bold text-gray-800 mb-6 stagger-animation">
+                خدمة ضيوف الرحمان شرف لنا
+            </h2>
+            <p class="text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto mb-8 stagger-animation">
+                مناسك عمرة بكل سهولة و يسر مع مؤطرين مختصين طيلة الرحلة
+            </p>
+            <div class="stagger-animation">
+                <a href="#contact-form" class="inline-flex items-center px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105" style="color: #1c67be; text-shadow: 2px 2px 4px rgba(255,255,255,0.8); font-size: 45px; font-weight: 900; border: 4px solid #1c67be; background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700) padding-box, linear-gradient(45deg, #1c67be, #2563eb, #1c67be, #1557a3) border-box;">
+                    احجز رحلة العمرة الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Reviews Section -->
+    <section class="py-16 bg-gray-50 section-fade-in">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-gray-800 text-center mb-12 stagger-animation">آراء معتمرينا</h3>
+            
+            <div class="scroll-container overflow-x-auto pb-4">
+                <div class="flex space-x-6 space-x-reverse min-w-max">
+                    <!-- Video Review 1 -->
+                    <div class="video-card bg-white rounded-2xl shadow-lg overflow-hidden flex-shrink-0" style="width: 216px;">
+                        <div class="relative bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center" style="width: 216px; height: 384px;">
+                            <button onclick="playVideo(1)" class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors">
+                                <svg class="w-8 h-8 text-white mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-3">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center ml-3">
+                                    <span class="text-xl">👤</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">أحمد محمد</h4>
+                                    <div class="star-rating text-sm">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm">"تجربة رائعة مع GoodFly، خدمة ممتازة ومرشدين محترفين"</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Review 2 -->
+                    <div class="video-card bg-white rounded-2xl shadow-lg overflow-hidden flex-shrink-0" style="width: 216px;">
+                        <div class="relative bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center" style="width: 216px; height: 384px;">
+                            <button onclick="playVideo(2)" class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors">
+                                <svg class="w-8 h-8 text-white mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-3">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center ml-3">
+                                    <span class="text-xl">👤</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">فاطمة علي</h4>
+                                    <div class="star-rating text-sm">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm">"الحمد لله أدينا العمرة بكل راحة وطمأنينة"</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Review 3 -->
+                    <div class="video-card bg-white rounded-2xl shadow-lg overflow-hidden flex-shrink-0" style="width: 216px;">
+                        <div class="relative bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center" style="width: 216px; height: 384px;">
+                            <button onclick="playVideo(3)" class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors">
+                                <svg class="w-8 h-8 text-white mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-3">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center ml-3">
+                                    <span class="text-xl">👤</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">محمد حسن</h4>
+                                    <div class="star-rating text-sm">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm">"خدمة متميزة وأسعار مناسبة، أنصح بها بشدة"</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Review 4 -->
+                    <div class="video-card bg-white rounded-2xl shadow-lg overflow-hidden flex-shrink-0" style="width: 216px;">
+                        <div class="relative bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center" style="width: 216px; height: 384px;">
+                            <button onclick="playVideo(4)" class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors">
+                                <svg class="w-8 h-8 text-white mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-3">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center ml-3">
+                                    <span class="text-xl">👤</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">عائشة أحمد</h4>
+                                    <div class="star-rating text-sm">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm">"تنظيم رائع ومرافقة ممتازة طوال الرحلة"</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Review 5 -->
+                    <div class="video-card bg-white rounded-2xl shadow-lg overflow-hidden flex-shrink-0" style="width: 216px;">
+                        <div class="relative bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center" style="width: 216px; height: 384px;">
+                            <button onclick="playVideo(5)" class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-colors">
+                                <svg class="w-8 h-8 text-white mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-3">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center ml-3">
+                                    <span class="text-xl">👤</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">يوسف إبراهيم</h4>
+                                    <div class="star-rating text-sm">⭐⭐⭐⭐⭐</div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm">"جزاكم الله خيراً على هذه الخدمة المتميزة"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section class="py-16 section-fade-in" style="background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 50%, #0ea5e9 100%);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4 stagger-animation">تقييمات جوجل</h3>
+                <div class="flex items-center justify-center space-x-2 space-x-reverse stagger-animation">
+                    <span class="text-4xl font-bold text-gray-800">4.9</span>
+                    <div class="star-rating text-2xl">⭐⭐⭐⭐⭐</div>
+                    <span class="text-gray-600">(247 تقييم)</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Google Review 1 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center ml-3">
+                            <span class="text-white font-bold">س</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">سارة محمود</h4>
+                            <div class="star-rating text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">"خدمة ممتازة وتنظيم رائع. أنصح الجميع بالتعامل مع GoodFly"</p>
+                </div>
+
+                <!-- Google Review 2 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center ml-3">
+                            <span class="text-white font-bold">ع</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">عبدالله خالد</h4>
+                            <div class="star-rating text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">"تجربة لا تُنسى، فريق محترف وخدمة على أعلى مستوى"</p>
+                </div>
+
+                <!-- Google Review 3 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center ml-3">
+                            <span class="text-white font-bold">م</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">مريم أحمد</h4>
+                            <div class="star-rating text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">"الحمد لله أدينا العمرة بكل يسر وسهولة مع هذه الوكالة المتميزة"</p>
+                </div>
+
+                <!-- Google Review 4 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center ml-3">
+                            <span class="text-white font-bold">ك</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">كريم الدين</h4>
+                            <div class="star-rating text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">"أسعار مناسبة وخدمة راقية. بارك الله فيكم على هذا التنظيم الممتاز"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact-form" class="py-16 section-fade-in" style="background: linear-gradient(180deg, #0ea5e9 0%, #1e40af 50%, #1f2937 100%);">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-white mb-4 stagger-animation">احجز رحلتك الآن</h3>
+                <p class="text-xl text-white/90 stagger-animation">املأ النموذج وسنتواصل معك في أقرب وقت</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-2xl p-8 border-4 relative overflow-hidden" style="border-color: #2c5598;">
+                <!-- Beautiful Islamic Pattern Background with 50% transparency -->
+                <div class="absolute inset-0 opacity-50 rounded-2xl overflow-hidden">
+                    <svg class="w-full h-full" viewBox="0 0 800 600" fill="none">
+                        <!-- Gradient background -->
+                        <rect width="800" height="600" fill="url(#islamicGradient)"/>
+                        
+                        <!-- Central Kaaba illustration -->
+                        <g transform="translate(350, 250)">
+                            <!-- Kaaba base -->
+                            <rect x="-50" y="20" width="100" height="80" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+                            
+                            <!-- Kiswah (black covering) -->
+                            <rect x="-45" y="25" width="90" height="70" fill="#000"/>
+                            
+                            <!-- Golden band (Hizam) -->
+                            <rect x="-45" y="50" width="90" height="15" fill="url(#goldPattern)"/>
+                            
+                            <!-- Door -->
+                            <rect x="-10" y="40" width="15" height="35" fill="#d4af37" stroke="#ffd700" stroke-width="1"/>
+                            
+                            <!-- Door details -->
+                            <rect x="-8" y="42" width="11" height="31" fill="#b8860b"/>
+                            <circle cx="5" cy="57" r="1" fill="#000"/>
+                            
+                            <!-- Black Stone corner -->
+                            <circle cx="45" cy="40" r="4" fill="#2c2c2c" stroke="#ffd700" stroke-width="1"/>
+                            
+                            <!-- Decorative patterns on Kiswah -->
+                            <rect x="-40" y="30" width="80" height="1" fill="#ffd700" opacity="0.6"/>
+                            <rect x="-40" y="35" width="80" height="0.5" fill="#ffd700" opacity="0.4"/>
+                            <rect x="-40" y="70" width="80" height="1" fill="#ffd700" opacity="0.6"/>
+                            <rect x="-40" y="75" width="80" height="0.5" fill="#ffd700" opacity="0.4"/>
+                            <rect x="-40" y="85" width="80" height="1" fill="#ffd700" opacity="0.6"/>
+                            
+                            <!-- Vertical decorative lines -->
+                            <rect x="-30" y="25" width="0.5" height="70" fill="#ffd700" opacity="0.3"/>
+                            <rect x="-10" y="25" width="0.5" height="70" fill="#ffd700" opacity="0.3"/>
+                            <rect x="10" y="25" width="0.5" height="70" fill="#ffd700" opacity="0.3"/>
+                            <rect x="30" y="25" width="0.5" height="70" fill="#ffd700" opacity="0.3"/>
+                        </g>
+                        
+                        <!-- Surrounding mosque architecture -->
+                        <!-- Minarets -->
+                        <rect x="100" y="150" width="12" height="120" fill="#8b7355" opacity="0.7"/>
+                        <rect x="200" y="130" width="12" height="140" fill="#8b7355" opacity="0.7"/>
+                        <rect x="588" y="130" width="12" height="140" fill="#8b7355" opacity="0.7"/>
+                        <rect x="688" y="150" width="12" height="120" fill="#8b7355" opacity="0.7"/>
+                        
+                        <!-- Minaret domes -->
+                        <ellipse cx="106" cy="145" rx="8" ry="6" fill="#d4af37"/>
+                        <ellipse cx="206" cy="125" rx="8" ry="6" fill="#d4af37"/>
+                        <ellipse cx="594" cy="125" rx="8" ry="6" fill="#d4af37"/>
+                        <ellipse cx="694" cy="145" rx="8" ry="6" fill="#d4af37"/>
+                        
+                        <!-- Islamic geometric patterns -->
+                        <g opacity="0.3">
+                            <!-- Top corners -->
+                            <g transform="translate(50, 50)">
+                                <circle cx="0" cy="0" r="30" fill="none" stroke="#d4af37" stroke-width="2"/>
+                                <circle cx="0" cy="0" r="20" fill="none" stroke="#d4af37" stroke-width="1"/>
+                                <circle cx="0" cy="0" r="10" fill="none" stroke="#d4af37" stroke-width="1"/>
+                                <path d="M-20,0 L20,0 M0,-20 L0,20" stroke="#d4af37" stroke-width="1"/>
+                            </g>
+                            
+                            <g transform="translate(750, 50)">
+                                <circle cx="0" cy="0" r="30" fill="none" stroke="#d4af37" stroke-width="2"/>
+                                <circle cx="0" cy="0" r="20" fill="none" stroke="#d4af37" stroke-width="1"/>
+                                <circle cx="0" cy="0" r="10" fill="none" stroke="#d4af37" stroke-width="1"/>
+                                <path d="M-20,0 L20,0 M0,-20 L0,20" stroke="#d4af37" stroke-width="1"/>
+                            </g>
+                            
+                            <!-- Bottom corners -->
+                            <g transform="translate(50, 550)">
+                                <circle cx="0" cy="0" r="30" fill="none" stroke="#d4af37" stroke-width="2"/>
+                                <circle cx="0" cy="0" r="20" fill="none" stroke="#d4af37" stroke-width="1"/>
+                                <circle cx="0" cy="0" r="10" fill="none" stroke="#d4af37" stroke-width="1"/>
+                                <path d="M-20,0 L20,0 M0,-20 L0,20" stroke="#d4af37" stroke-width="1"/>
+                            </g>
+                            
+                            <g transform="translate(750, 550)">
+                                <circle cx="0" cy="0" r="30" fill="none" stroke="#d4af37" stroke-width="2"/>
+                                <circle cx="0" cy="0" r="20" fill="none" stroke="#d4af37" stroke-width="1"/>
+                                <circle cx="0" cy="0" r="10" fill="none" stroke="#d4af37" stroke-width="1"/>
+                                <path d="M-20,0 L20,0 M0,-20 L0,20" stroke="#d4af37" stroke-width="1"/>
+                            </g>
+                        </g>
+                        
+                        <!-- Tawaf circles around Kaaba -->
+                        <circle cx="400" cy="300" r="120" fill="none" stroke="#e5e7eb" stroke-width="2" opacity="0.4"/>
+                        <circle cx="400" cy="300" r="90" fill="none" stroke="#e5e7eb" stroke-width="1" opacity="0.5"/>
+                        <circle cx="400" cy="300" r="60" fill="none" stroke="#e5e7eb" stroke-width="1" opacity="0.6"/>
+                        
+                        <!-- Pilgrims (small dots) -->
+                        <circle cx="320" cy="330" r="2" fill="#ffffff" opacity="0.8"/>
+                        <circle cx="340" cy="280" r="2" fill="#ffffff" opacity="0.8"/>
+                        <circle cx="460" cy="330" r="2" fill="#ffffff" opacity="0.8"/>
+                        <circle cx="480" cy="280" r="2" fill="#ffffff" opacity="0.8"/>
+                        <circle cx="300" cy="300" r="2" fill="#ffffff" opacity="0.8"/>
+                        <circle cx="500" cy="300" r="2" fill="#ffffff" opacity="0.8"/>
+                        <circle cx="400" cy="220" r="2" fill="#ffffff" opacity="0.8"/>
+                        <circle cx="400" cy="380" r="2" fill="#ffffff" opacity="0.8"/>
+                        
+                        <!-- Crescent moon and star -->
+                        <g transform="translate(400, 100)" opacity="0.6">
+                            <path d="M-15,-10 Q-5,-20 5,-10 Q-5,0 -15,-10" fill="#d4af37"/>
+                            <path d="M8,-15 L10,-5 L20,-7 L12,-1 L14,9 L8,-1 L2,9 L4,-1 L-4,-7 L6,-5 Z" fill="#d4af37"/>
+                        </g>
+                        
+                        <!-- Arabic calligraphy style decoration -->
+                        <g transform="translate(400, 450)" opacity="0.4">
+                            <path d="M-50,0 Q-25,-10 0,0 Q25,-10 50,0" stroke="#d4af37" stroke-width="3" fill="none"/>
+                            <circle cx="-30" cy="-5" r="3" fill="#d4af37"/>
+                            <circle cx="30" cy="-5" r="3" fill="#d4af37"/>
+                        </g>
+                        
+                        <defs>
+                            <!-- Islamic gradient background -->
+                            <linearGradient id="islamicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+                                <stop offset="30%" style="stop-color:#059669;stop-opacity:1" />
+                                <stop offset="70%" style="stop-color:#d97706;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#7c2d12;stop-opacity:1" />
+                            </linearGradient>
+                            
+                            <!-- Gold pattern for Kiswah band -->
+                            <linearGradient id="goldPattern" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#b8860b;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#ffed4e;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#b8860b;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                
+                <!-- Form content with higher z-index -->
+                <div class="relative z-10">
+                <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Name Field -->
+                        <div>
+                            <label class="block text-sm font-medium text-blue-700 mb-2">الاسم الكامل *</label>
+                            <input type="text" required class="w-full px-4 py-3 border-2 border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-50" placeholder="أدخل اسمك الكامل">
+                        </div>
+
+                        <!-- Phone Field -->
+                        <div>
+                            <label class="block text-sm font-medium text-blue-700 mb-2">رقم الهاتف *</label>
+                            <input type="tel" required class="w-full px-4 py-3 border-2 border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-50" placeholder="رقم الهاتف مع رمز البلد">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Program Selection Field -->
+                        <div>
+                            <label class="block text-sm font-medium text-blue-700 mb-2">إختر البرنامج *</label>
+                            <select required class="w-full px-4 py-3 border-2 border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-50">
+                                <option value="">اختر البرنامج المناسب</option>
+                                <option value="عمرة 15 يوم">عمرة 15 يوم</option>
+                                <option value="عمرة رمضان">عمرة رمضان</option>
+                                <option value="برنامج آخر">برنامج آخر</option>
+                            </select>
+                        </div>
+
+                        <!-- Hotels Field -->
+                        <div>
+                            <label class="block text-sm font-medium text-blue-700 mb-2">الفنادق *</label>
+                            <select required class="w-full px-4 py-3 border-2 border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-50">
+                                <option value="">اختر نوع الفندق</option>
+                                <option value="3 نجوم">فنادق 3 نجوم</option>
+                                <option value="4 نجوم">فنادق 4 نجوم</option>
+                                <option value="5 نجوم">فنادق 5 نجوم</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Number of Travelers Field -->
+                        <div>
+                            <label class="block text-sm font-medium text-blue-700 mb-2">عدد المسافرين *</label>
+                            <select required class="w-full px-4 py-3 border-2 border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-50">
+                                <option value="">اختر عدد المسافرين</option>
+                                <option value="1">شخص واحد</option>
+                                <option value="2">شخصان</option>
+                                <option value="3">3 أشخاص</option>
+                                <option value="4">4 أشخاص</option>
+                                <option value="5+">5 أشخاص أو أكثر</option>
+                            </select>
+                        </div>
+
+                        <!-- Room Type Field -->
+                        <div>
+                            <label class="block text-sm font-medium text-blue-700 mb-2">نوع الغرفة *</label>
+                            <select required class="w-full px-4 py-3 border-2 border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-50">
+                                <option value="">اختر نوع الغرفة</option>
+                                <option value="double">غرفة مزدوجة (شخصان)</option>
+                                <option value="triple">غرفة ثلاثية (3 أشخاص)</option>
+                                <option value="quadruple">غرفة رباعية (4 أشخاص)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Additional Requests Field -->
+                    <div>
+                        <label class="block text-sm font-medium text-blue-700 mb-2">طلبات أخرى</label>
+                        <textarea class="w-full px-4 py-3 border-2 border-yellow-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-yellow-50 resize-vertical" rows="4" placeholder="اكتب هنا أي طلبات خاصة أو استفسارات إضافية..."></textarea>
+                        <p class="text-xs text-gray-600 mt-1">مثال: تفضيلات الطعام، احتياجات خاصة، مواعيد محددة، إلخ</p>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="px-8 py-4 rounded-lg font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105" style="color: #1c67be; text-shadow: 2px 2px 4px rgba(255,255,255,0.8); font-weight: 900; font-size: 1.92rem; border: 4px solid #1c67be; background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700) padding-box, linear-gradient(45deg, #1c67be, #2563eb, #1c67be, #1557a3) border-box;">
+                            إرسال الطلب
+                        </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white py-12" style="background: linear-gradient(180deg, #1f2937 0%, #111827 100%);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pr-12 text-center">
+            <div class="mb-8">
+                <div class="flex items-center justify-center mb-1">
+                    <img src="https://i.postimg.cc/87nDJWhk/image.png" 
+                         alt="GoodFly Logo" 
+                         class="w-18 h-18 object-contain"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-18 h-18 bg-gradient-to-br from-green-600 to-blue-600 rounded-full items-center justify-center" style="display: none;">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-xl font-semibold text-white" style="margin-top: -50px;">ظروف مريحة لعبادة صحيحة</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8" style="margin-top: 50px;">
+                <div>
+                    <h4 class="font-semibold mb-4">تواصل معنا</h4>
+                    <p class="text-gray-400">📞 +212537840200</p>
+                    <p class="text-gray-400">📧 goodfly64@gmail.com</p>
+                    <p class="text-gray-400 text-sm mt-2">📍 سلا, طريق القنيطرة (أمام القواس القنيطرة) عمارة 4, شقة 1</p>
+                    <a href="https://maps.app.goo.gl/xepyqq7fjPCJkNm68" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-blue-400 hover:text-blue-300 text-sm transition-colors">
+                        🗺️ عرض الموقع على الخريطة
+                    </a>
+                    <div class="mt-4">
+                        <a href="https://wa.me/212634503034" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                            تواصل عبر واتساب
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">خدماتنا</h4>
+                    <p class="text-gray-400">• رحلات العمرة</p>
+                    <p class="text-gray-400">• رحلات الحج</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">تابعنا</h4>
+                    <div class="flex justify-center space-x-4 space-x-reverse">
+                        <a href="https://www.facebook.com/goodfly.net/reels/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/goodfly64/reels/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-full flex items-center justify-center transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@goodfly.agence" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-black hover:bg-gray-800 rounded-full flex items-center justify-center transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-gray-400">&copy; 2024 GoodFly. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function playVideo(videoNumber) {
+            alert(`🎥 تشغيل فيديو المراجعة رقم ${videoNumber}. في الموقع الحقيقي، سيتم تشغيل الفيديو هنا.`);
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const name = formData.get('name') || 'العميل';
+            
+            alert(`🎉 شكراً لك! تم إرسال طلبك بنجاح. سنتواصل معك قريباً لتأكيد تفاصيل رحلة العمرة.`);
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Intersection Observer for smooth section animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Stagger animation for child elements
+                    const staggerElements = entry.target.querySelectorAll('.stagger-animation');
+                    staggerElements.forEach((element, index) => {
+                        setTimeout(() => {
+                            element.classList.add('visible');
+                        }, index * 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and stagger elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const sectionsToAnimate = document.querySelectorAll('.section-fade-in');
+            sectionsToAnimate.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Also observe individual stagger elements that aren't in sections
+            const staggerElements = document.querySelectorAll('.stagger-animation');
+            staggerElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // Set minimum date to today
+        const dateInput = document.querySelector('input[type="date"]');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+        }
+
+        // Smooth scrolling for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987b780083817113',t:'MTc1OTMxNjU1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
